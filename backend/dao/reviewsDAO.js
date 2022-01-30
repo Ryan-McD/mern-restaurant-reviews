@@ -11,7 +11,7 @@ export default class ReviewsDAO {
     try {
       reviews = await conn.db(process.env.RESTREVIEWS_NS).collection("reviews");
     } catch (e) {
-      console.error("Unable to establish collection handles in userDAO: ${e}");
+      console.error("Unable to establish collection handles in userDAO: %s", e);
     }
   }
 
@@ -41,7 +41,7 @@ export default class ReviewsDAO {
 
       return updateResponse;
     } catch (e) {
-      console.error("Unable to update review: ${e}");
+      console.error("Unable to update review: %s", e);
       return { error: e };
     }
   }
@@ -55,7 +55,7 @@ export default class ReviewsDAO {
 
       return deleteResponse;
     } catch (e) {
-      console.error("Unable to delete review: ${e}");
+      console.error("Unable to delete review: %s", e);
       return { error: e };
     }
   }
